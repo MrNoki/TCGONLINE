@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<collection>
+	<extension nom = "Incarnam">
+	
+	</extension>
+	<extension nom = "Astrub la Menace Roublarde">
+		<card name = "Crapaud à Moustache" PA = "1" XP = "0" element = "Neutre" cardType = "Allié" classe = "Monstre" espece = "Amphibon" description = "Quand le Crapaud à Moustache apparait il ne se passe rien.">
+			<effet nom = "Géant" objet = "GiantEffect"/>
+		</card>
+	</extension>
+	<extension nom = "Amakna les Lames Fatales">
+	
+	</extension>
+</collection>
