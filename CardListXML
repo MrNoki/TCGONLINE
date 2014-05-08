@@ -12,7 +12,7 @@
 -description
 -unique
 
-<card name = "Havre Sac du Tofu" niveau = "1" element = "Air" cardType = "Havre Sac" taille = "4" resistance = "15" description = "100% pures plumes de Tofu de quoi s'aménager un petit nid douillet à transporter partout !">
+<card name = "Havre Sac du Tofu" niveau = "1" element = "Air" cardType = "HavreSac" taille = "4" resistance = "15" description = "100% pures plumes de Tofu de quoi s'aménager un petit nid douillet à transporter partout !">
 			
 </card>
 =====================================Héros==================================
