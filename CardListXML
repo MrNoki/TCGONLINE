@@ -1,14 +1,243 @@
 <?xml version="1.0" ?>
+<!-- 
+////////////////////////////Exemple d'utilisation/////////////////////////////
+===================================Havre-Sac================================
+@Params card: NB(Certains paramètres sont facultatif en fonction de la carte à traiter.)
+-name
+-niveau
+-element
+-cardType
+-taille
+-resistance
+-description
+-unique
+
+<card name = "Havre Sac du Tofu" niveau = "1" element = "Air" cardType = "Havre Sac" taille = "4" resistance = "15" description = "100% pures plumes de Tofu de quoi s'aménager un petit nid douillet à transporter partout !">
+			
+</card>
+=====================================Héros==================================
+ATTENTION LES DEUX COTES DE LA CARTE DOIVENT ETRE TRAITE
+@Params card: NB(Certains paramètres sont facultatif en fonction de la carte à traiter.)
+-name
+-niveau
+-degat
+-PA
+-PM
+-PV
+-element
+-cardType
+-classe
+-cote
+-metier
+-description
+-unique
+
+@Params effet:
+-name
+-description
+-value
+
+<card name = "Tirlangue Portey" niveau = "1" degat = "1" element = "Air" PA = "6" PM = "3" PV = "16" cardType = "Heros" classe = "Crâ" cote = "Recto">
+	<effet name = "dealAirDamage" value = "2"/>
+</card>
+<card name = "Tirlangue Portey" niveau = "2" degat = "2" element = "Air" PA = "7" PM = "3" PV = "20" cardType = "Heros" classe = "Crâ" cote = "Verso">
+	<effet name = "dealDamage" value = "3"/>
+</card>
+===================================Protecteur===============================
+@Params card: NB(Certains paramètres sont facultatif en fonction de la carte à traiter.)
+-name
+-niveau
+-degat
+-element
+-cardType
+-classe
+-cote
+-metier
+-description
+-unique
+
+@Params effet:
+-name
+-description
+-value
+
+<card name = "Maimane, Protecteur d'Octolliard" niveau = "0" element = "Terre" description = "Maimanne l'a bien compris en Octolliard, on reste penard !">
+	<effet name = "blockAttaque" description = "Quand un joueur déclare une attaque vous pouvez choisir un Allié ou Héros. Jusqu'à la fin du tour cet Allié ou Héros ne peut ni attaquer ni bloquer."/>
+	<effet name = "banIfDestroy" description = "A la fin de votre tour si un de vos Alliés à été détruit lors d'un combat pendant ce tour, bannissez Maimane Protecteur d'Octolliard."/>
+</card>
+=====================================Allié==================================
+@Params card: NB(Certains paramètres sont facultatif en fonction de la carte à traiter.)
+-name
+-niveau
+-degat
+-Xp
+-element
+-cardType
+-classe
+-espece
+-metier
+-description
+-unique
+-champion
+
+@Params effet:
+-name
+-description
+-value
+
+@Example :
+
+<card name = "Crapaud à Moustache" niveau = "3" degat = "3" XP = "0" element = "Neutre" cardType = "Allie" classe = "Monstre" espece = "Amphibon" description = "">
+	<effet name = "giant" />
+	<effet name = "troll" description = "Quand le Crapaud à Moustache apparait il ne se passe rien."/>
+</card>
+
+==================================Equipement================================
+@Params card: NB(Certains paramètres sont facultatif en fonction de la carte à traiter.)
+-name
+-niveau
+-element
+-cardType
+-equipmentType
+-description
+-unique
+
+@Params effet:
+-name
+-description
+-value
+
+Example : 
+
+<card name = "Fotome" niveau = "4" element= "Air" cardType = "Equipement" equipmentType = "familier" unique = "unique" description ="Caspied était un gentil Fotome, héros des enfants qui n'avait pas d'amis car il était trop collant.">
+	<effet name = "handRecover" description ="Quand le Porteur du Fotome est détruit, vous pouvez reprendre le Fotome dans votre main."/>
+	<effet name = "spellPowerImmunePassivAlly" description = "Tant qu'il n'est pas attaquant ou bloqueur, le Porteur du Fotome ne peut pas être choisi par une Action ou un pouvoir"/>
+</card>
+=====================================Zone===================================
+@Params card: NB(Certains paramètres sont facultatif en fonction de la carte à traiter.)
+-name
+-niveau
+-element
+-cardType
+-zoneType
+-description
+-unique
+
+@Params effet:
+-name
+-description
+-value
+
+<card name = "Usine de Choco Wakfu" niveau = "2" cardType = "Zone" element = "Neutre" description = "Spécialité de Kamas en chocolat : fond dans la bouche pas dans la poche.">
+	<effet name = "productRessource" description = "Produisez une Ressource de l'élément de votre choix"/>
+</card>
+=====================================Salle==================================
+@Params card: NB(Certains paramètres sont facultatif en fonction de la carte à traiter.)
+-name
+-niveau
+-element
+-cardType
+-salleType
+-description
+-unique
+
+@Params effet:
+-name
+-description
+-value
+
+<card name = "Auberge d'Astrub" niveau = "1" element = "Neutre" cardType = "Salle" salleType = "Auberge" description = "A l'auberge d'Astrub, mieux vaut être reçu comme des Pious en pâte que comme des pattes de Piou !">
+	<effet name = "neutralRecipe" value = "1"/>
+	<effet name = "PvReg" description = "Détruisez l'Auberge d'Astrub : Le Héros de votre choix regagne 2 PV."/>
+</card>
+====================================Action==================================
+@Params card: NB(Certains paramètres sont facultatif en fonction de la carte à traiter.)
+-name
+-niveau
+-element
+-cardType
+-actionType
+-description
+-unique
+
+@Params effet:
+-name
+-description
+-value
+
+<card name = "Poubelle d'Astrub" niveau = "1" element = "Neutre" cardType = "Action" description = "Ce soir je serai la poubeeeellleeeuu pour aller daaaannsssser, daaaaaannnsssssseeer !! -Sylvie Vatan">
+	<effet name ="banDefausseDraw" description = "Bannissez la carte de votre choix de la Défausse d'un adversaire.Piochez une carte."/>
+</card>
+=====================================Dofus==================================
+@Params card: NB(Certains paramètres sont facultatif en fonction de la carte à traiter.)
+-name
+-niveau
+-element
+-cardType
+-description
+-unique
+
+@Params effet:
+-name
+-description
+-value
+
+<card name = "Dofus Pourpre" niveau = "0" cardType = "Dofus" unique = "unique" description ="Si quelqu'un vous réclame ce Dofus, dites-lui d'aller se faire cuire un oeuf !">
+	<effet name = "minotoror" description = "Ne jouez le Dofus Pourpre que si vous controlez le Minotoror dans le monde au début de votre tour."/>
+	<effet name = "gainXP" value ="2" description = "Quand le Dofus Pourpre apparaît gagnez 2 XP."/>
+	<effet name = "damageIncreased" value ="1" description = "Chaque fois que vos Alliés ou Héros nfligent des Dommages, ces Dommages sont augmentés de 1"/>
+</card>
+
+////////////////////////////////////////////////////////////////////////////
+//////////////////////Liste de Cartes Non placés///////////////////////////
+====Nom de la Carte ===============================extensions==============
+
+
+-->
 <collection>
-	<extension nom = "Incarnam">
-	
-	</extension>
-	<extension nom = "Astrub la Menace Roublarde">
-		<card name = "Crapaud à Moustache" PA = "1" XP = "0" element = "Neutre" cardType = "Allié" classe = "Monstre" espece = "Amphibon" description = "Quand le Crapaud à Moustache apparait il ne se passe rien.">
-			<effet nom = "Géant" objet = "GiantEffect"/>
+	<extension name = "Incarnam">
+		<card name = "Tirlangue Portey" niveau = "1" degat = "1" element = "Air" PA = "6" PM = "3" PV = "16" cardType = "Heros" classe = "Crâ" cote = "Recto">
+			<effet name = "dealAirDamage" value = "2"/>
+		</card>
+		<card name = "Tirlangue Portey" niveau = "2" degat = "2" element = "Air" PA = "7" PM = "3" PV = "20" cardType = "Heros" classe = "Crâ" cote = "Verso">
+			<effet name = "dealDamage" value = "3"/>
+		</card>
+		<card name = "Havre Sac du Tofu" niveau = "1" element = "Air" cardType = "Havre Sac" taille = "4" resistance = "15" description = "100% pures plumes de Tofu de quoi s'aménager un petit nid douillet à transporter partout !">
+			
 		</card>
 	</extension>
-	<extension nom = "Amakna les Lames Fatales">
+	<extension name = "Astrub la Menace Roublarde">
+		<card name = "Crapaud à Moustache" niveau = "3" degat = "3" XP = "0" element = "Neutre" cardType = "Allie" classe = "Monstre" espece = "Amphibon" description = "Ce spécimen à développé une étrange pilosité faciale. Mais il est capable de développer bien d'autres choses">
+			<effet name = "giant" />
+			<effet name = "troll" description = "Quand le Crapaud à Moustache apparait il ne se passe rien."/>
+		</card>
+		<card name = "Poubelle d'Astrub" niveau = "1" element = "Neutre" cardType = "Action" description = "Ce soir je serai la poubeeeellleeeuu pour aller daaaannsssser, daaaaaannnsssssseeer !! -Sylvie Vatan">
+			<effet name ="banDefausseDraw" description = "Bannissez la carte de votre choix de la Défausse d'un adversaire.Piochez une carte."/>
+		</card>
+		<card name = "Usine de Choco Wakfu" niveau = "2" cardType = "Zone" element = "Neutre" description = "Spécialité de Kamas en chocolat : fond dans la bouche pas dans la poche.">
+			<effet name = "productRessource" description = "Produisez une Ressource de l'élément de votre choix"/>
+		</card>
+		<card name = "Auberge d'Astrub" niveau = "1" element = "Neutre" cardType = "Salle" salleType = "Auberge" description = "A l'auberge d'Astrub, mieux vaut être reçu comme des Pious en pâte que comme des pattes de Piou !">
+			<effet name = "neutralRecipe" value = "1"/>
+			<effet name = "PvReg" description = "Détruisez l'Auberge d'Astrub : Le Héros de votre choix regagne 2 PV."/>
+		</card>
+		<card name = "Fotome" niveau = "4" element= "Air" cardType = "Equipement" equipmentType = "familier" unique = "unique" description ="Caspied était un gentil Fotome, héros des enfants qui n'avait pas d'amis car il était trop collant.">
+			<effet name = "handRecover" description ="Quand le Porteur du Fotome est détruit, vous pouvez reprendre le Fotome dans votre main."/>
+			<effet name = "spellPowerImmunePassivAlly" description = "Tant qu'il n'est pas attaquant ou bloqueur, le Porteur du Fotome ne peut pas être choisi par une Action ou un pouvoir"/>
+		</card>
+		<card name = "Dofus Pourpre" niveau = "0" cardType = "Dofus" unique = "unique" description ="Si quelqu'un vous réclame ce Dofus, dites-lui d'aller se faire cuire un oeuf !">
+			<effet name = "minotoror" description = "Ne jouez le Dofus Pourpre que si vous controlez le Minotoror dans le monde au début de votre tour."/>
+			<effet name = "gainXP" value ="2" description = "Quand le Dofus Pourpre apparaît gagnez 2 XP."/>
+			<effet name = "damageIncreased" value ="1" description = "Chaque fois que vos Alliés ou Héros nfligent des Dommages, ces Dommages sont augmentés de 1"/>
+		</card>
+	</extension>
+	<extension name = "Amakna les Lames Fatales">
 	
+	</extension>
+	<extension name = "Bonta & Brakmar">
+		<card name = "Maimane, Protecteur d'Octolliard" niveau = "0" element = "Terre" description = "Maimanne l'a bien compris en Octolliard, on reste penard !">
+			<effet name = "blockAttaque" description = "Quand un joueur déclare une attaque vous pouvez choisir un Allié ou Héros. Jusqu'à la fin du tour cet Allié ou Héros ne peut ni attaquer ni bloquer."/>
+			<effet name = "banIfDestroy" description = "A la fin de votre tour si un de vos Alliés à été détruit lors d'un combat pendant ce tour, bannissez Maimane Protecteur d'Octolliard."/>
+		</card>
 	</extension>
 </collection>
